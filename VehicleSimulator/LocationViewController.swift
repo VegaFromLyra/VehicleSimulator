@@ -25,6 +25,11 @@ class LocationViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    // NOTE: UIButton won't gray out without the following two statements
+    startButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Disabled)
+    stopButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Disabled)
+    
+    stopButton.enabled = false
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -37,14 +42,14 @@ class LocationViewController: UIViewController {
   
   @IBAction func startUpdatingLocation(sender: AnyObject) {
     locationManager.startUpdatingLocation()
-    startButton.userInteractionEnabled = false
-    stopButton.userInteractionEnabled = true
+    startButton.enabled = false
+    stopButton.enabled = true
   }
   
   @IBAction func stopUpdatingLocation(sender: AnyObject) {
     locationManager.stopUpdatingLocation()
-    startButton.userInteractionEnabled = true
-    stopButton.userInteractionEnabled = false
+    startButton.enabled = true
+    stopButton.enabled = false
   }
   
   override func didReceiveMemoryWarning() {
