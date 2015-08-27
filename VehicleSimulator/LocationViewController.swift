@@ -19,6 +19,10 @@ class LocationViewController: UIViewController {
   let busId = "actionmanBus"
   let locationService = LocationService.sharedInstance
   
+  
+  @IBOutlet weak var startButton: UIButton!
+  @IBOutlet weak var stopButton: UIButton!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
@@ -29,11 +33,18 @@ class LocationViewController: UIViewController {
     locationManager.requestAlwaysAuthorization()
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
     locationManager.distanceFilter = 25 // TODO; Tune this value based on data
+  }
+  
+  @IBAction func startUpdatingLocation(sender: AnyObject) {
     locationManager.startUpdatingLocation()
+    startButton.userInteractionEnabled = false
+    stopButton.userInteractionEnabled = true
   }
   
   @IBAction func stopUpdatingLocation(sender: AnyObject) {
     locationManager.stopUpdatingLocation()
+    startButton.userInteractionEnabled = true
+    stopButton.userInteractionEnabled = false
   }
   
   override func didReceiveMemoryWarning() {
