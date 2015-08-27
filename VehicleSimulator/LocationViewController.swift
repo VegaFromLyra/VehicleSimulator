@@ -27,7 +27,8 @@ class LocationViewController: UIViewController {
     super.viewDidAppear(animated)
     locationManager.delegate = self
     locationManager.requestAlwaysAuthorization()
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+    locationManager.distanceFilter = 25 // TODO; Tune this value based on data
     locationManager.startUpdatingLocation()
   }
   
