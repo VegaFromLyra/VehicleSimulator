@@ -8,6 +8,9 @@
 
 import UIKit
 
+import Bolts
+import Parse
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,7 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    // Override point for customization after application launch.
+    Parse.setApplicationId("CQq1MSlxSlnzXn1RLtmXkG2mvaHazhGBfYuuML5v",
+      clientKey: "SZPpAaUVnNOSQsbHzJBnOw5s9o7sCeyQSkf7s6Ca")
+    
+    PFUser.enableAutomaticUser()
+    
+    let defaultACL = PFACL();
+    PFACL.setDefaultACL(defaultACL, withAccessForCurrentUser:true)
+    
     return true
   }
 
