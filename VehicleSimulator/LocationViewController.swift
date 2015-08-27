@@ -13,7 +13,11 @@ class LocationViewController: UIViewController {
   
   @IBOutlet weak var latitudeLabel: UILabel!
   @IBOutlet weak var longitudeLabel: UILabel!
+  
   let locationManager: CLLocationManager =  CLLocationManager()
+  let busOperatorId = "BusOperator1"
+  let busId = "actionmanBus"
+  let locationService = LocationService.sharedInstance
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -55,6 +59,10 @@ extension LocationViewController: CLLocationManagerDelegate {
     if let currentLocation = currentLocation {
       latitudeLabel.text = String(format:"%f", currentLocation.coordinate.latitude)
       longitudeLabel.text = String(format:"%f", currentLocation.coordinate.longitude)
+      var location = LocationModel(latitude: currentLocation.coordinate.latitude,
+        longitude: currentLocation.coordinate.longitude,
+        busExternalId: busId)
+      locationService.saveLocation(location)
     } else {
       latitudeLabel.text = ""
       longitudeLabel.text = ""

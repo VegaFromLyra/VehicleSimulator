@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>IJReachability.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>41EEF3B995D1E108008F9AA6ADB77187</key>
+		<key>69D0AB70878DDDE8030318527B0B020E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7AE80E9BD7F96355B786E03E1272D53E</key>
+		<key>A97957ACFE88711D861A8F8582DBB240</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C802E87D285A0348D769044642600E77</key>
+		<key>B736C643A025A83933D5B68885D355E6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DB8D11D1A87677B7FD32BA6F28BA38A1</key>
+		<key>D422C99A5161ED36DAFA8826DB9597E3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D4EC0BE4FED99CCE51E13E5BCB340747</key>
 		<dict>
 			<key>primary</key>
 			<true/>

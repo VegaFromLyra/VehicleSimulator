@@ -10,6 +10,12 @@
 		28BE8A09300269FDA2207FB5 /* Pods_VehicleSimulator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF9D46378D70ACD04974DE5 /* Pods_VehicleSimulator.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4E9058DA1B8F9A4C00951F44 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9058D91B8F9A4C00951F44 /* LocationViewController.swift */; };
 		4E9058DB1B8F9A4C00951F44 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9058D91B8F9A4C00951F44 /* LocationViewController.swift */; };
+		4E9058DF1B8FA5BB00951F44 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9058DE1B8FA5BB00951F44 /* LocationModel.swift */; };
+		4E9058E01B8FA5BB00951F44 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9058DE1B8FA5BB00951F44 /* LocationModel.swift */; };
+		4E9058E31B8FA78700951F44 /* UtilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9058E21B8FA78700951F44 /* UtilityService.swift */; };
+		4E9058E41B8FA78700951F44 /* UtilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9058E21B8FA78700951F44 /* UtilityService.swift */; };
+		4E9058E61B8FB44100951F44 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9058E51B8FB44100951F44 /* LocationService.swift */; };
+		4E9058E71B8FB44100951F44 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9058E51B8FB44100951F44 /* LocationService.swift */; };
 		4EC4498A1B8F8A17009B625C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC449891B8F8A17009B625C /* AppDelegate.swift */; };
 		4EC4498C1B8F8A17009B625C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC4498B1B8F8A17009B625C /* ViewController.swift */; };
 		4EC4498F1B8F8A17009B625C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC4498D1B8F8A17009B625C /* Main.storyboard */; };
@@ -33,6 +39,9 @@
 		2540FCA1D9D9BA05FE3CDA2C /* Pods-VehicleSimulatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VehicleSimulatorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VehicleSimulatorTests/Pods-VehicleSimulatorTests.release.xcconfig"; sourceTree = "<group>"; };
 		338AABEA8801A421C5409A38 /* Pods_VehicleSimulatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VehicleSimulatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E9058D91B8F9A4C00951F44 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		4E9058DE1B8FA5BB00951F44 /* LocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		4E9058E21B8FA78700951F44 /* UtilityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityService.swift; sourceTree = "<group>"; };
+		4E9058E51B8FB44100951F44 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		4EC449841B8F8A17009B625C /* VehicleSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VehicleSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EC449881B8F8A17009B625C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EC449891B8F8A17009B625C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +98,23 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		4E9058DD1B8FA58200951F44 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4E9058DE1B8FA5BB00951F44 /* LocationModel.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		4E9058E11B8FA76400951F44 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4E9058E21B8FA78700951F44 /* UtilityService.swift */,
+				4E9058E51B8FB44100951F44 /* LocationService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		4EC4497B1B8F8A17009B625C = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +138,8 @@
 		4EC449861B8F8A17009B625C /* VehicleSimulator */ = {
 			isa = PBXGroup;
 			children = (
+				4E9058E11B8FA76400951F44 /* Services */,
+				4E9058DD1B8FA58200951F44 /* Models */,
 				4E9058DC1B8F9A5400951F44 /* Controllers */,
 				4EC449891B8F8A17009B625C /* AppDelegate.swift */,
 				4EC4498D1B8F8A17009B625C /* Main.storyboard */,
@@ -355,8 +383,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E9058DF1B8FA5BB00951F44 /* LocationModel.swift in Sources */,
+				4E9058E31B8FA78700951F44 /* UtilityService.swift in Sources */,
 				4E9058DA1B8F9A4C00951F44 /* LocationViewController.swift in Sources */,
 				4EC4498C1B8F8A17009B625C /* ViewController.swift in Sources */,
+				4E9058E61B8FB44100951F44 /* LocationService.swift in Sources */,
 				4EC4498A1B8F8A17009B625C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,7 +396,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E9058E41B8FA78700951F44 /* UtilityService.swift in Sources */,
 				4EC449A01B8F8A17009B625C /* VehicleSimulatorTests.swift in Sources */,
+				4E9058E71B8FB44100951F44 /* LocationService.swift in Sources */,
+				4E9058E01B8FA5BB00951F44 /* LocationModel.swift in Sources */,
 				4E9058DB1B8F9A4C00951F44 /* LocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
