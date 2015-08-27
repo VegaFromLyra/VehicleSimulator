@@ -88,7 +88,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40.73" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVN-3g-mt9">
-                                        <rect key="frame" x="310.5" y="266" width="43" height="20.5"/>
+                                        <rect key="frame" x="310" y="266" width="43" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -99,21 +99,60 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxv-lN-X4e">
+                                        <rect key="frame" x="224.5" y="428" width="150" height="30"/>
+                                        <color key="backgroundColor" red="0.50528524180000001" green="1" blue="0.97454383330000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="jN2-Ow-h7E"/>
+                                        </constraints>
+                                        <state key="normal" title="Stop">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="stopUpdatingLocation:" destination="2Zp-IA-1On" eventType="touchUpInside" id="IZ3-Xp-XOp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qwT-6P-G4Y">
+                                        <rect key="frame" x="224.5" y="478" width="150" height="30"/>
+                                        <color key="backgroundColor" red="0.50528524180000001" green="1" blue="0.97454383330000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="0yT-OZ-TdL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="gxv-lN-X4e" firstAttribute="leading" secondItem="qwT-6P-G4Y" secondAttribute="leading" id="2BZ-An-rXj"/>
+                                    <constraint firstAttribute="trailing" secondItem="gxv-lN-X4e" secondAttribute="trailing" constant="253" id="2QQ-Ow-jJc"/>
+                                    <constraint firstItem="gxv-lN-X4e" firstAttribute="height" secondItem="qwT-6P-G4Y" secondAttribute="height" id="7Dm-Hm-pVd"/>
                                     <constraint firstItem="UJd-Dq-5ra" firstAttribute="top" secondItem="7TJ-RS-2Vw" secondAttribute="top" constant="93" id="8OX-It-HB1"/>
+                                    <constraint firstItem="gxv-lN-X4e" firstAttribute="trailing" secondItem="qwT-6P-G4Y" secondAttribute="trailing" id="BSQ-5T-U1U"/>
                                     <constraint firstItem="UJd-Dq-5ra" firstAttribute="leading" secondItem="Eef-OJ-Two" secondAttribute="leading" id="Hnc-1N-QJH"/>
                                     <constraint firstItem="Vnv-2n-VXu" firstAttribute="top" secondItem="UJd-Dq-5ra" secondAttribute="bottom" constant="116" id="L6c-Aq-Qef"/>
                                     <constraint firstItem="hRB-Ha-w2T" firstAttribute="top" secondItem="Eef-OJ-Two" secondAttribute="top" id="LsL-Ec-NmN"/>
                                     <constraint firstAttribute="centerX" secondItem="UJd-Dq-5ra" secondAttribute="centerX" id="Op8-UH-NNC"/>
                                     <constraint firstItem="UJd-Dq-5ra" firstAttribute="leading" secondItem="Vnv-2n-VXu" secondAttribute="leading" id="Oug-C1-ACG"/>
+                                    <constraint firstItem="qwT-6P-G4Y" firstAttribute="top" secondItem="gxv-lN-X4e" secondAttribute="bottom" constant="20" id="Oye-i3-aSR"/>
                                     <constraint firstItem="Eef-OJ-Two" firstAttribute="top" secondItem="Vnv-2n-VXu" secondAttribute="bottom" constant="27" id="PWd-3D-GMk"/>
+                                    <constraint firstAttribute="centerX" secondItem="gxv-lN-X4e" secondAttribute="centerX" id="SDn-Gg-Jqg"/>
+                                    <constraint firstItem="gxv-lN-X4e" firstAttribute="width" secondItem="qwT-6P-G4Y" secondAttribute="width" id="aI9-OA-e7x"/>
                                     <constraint firstItem="wVN-3g-mt9" firstAttribute="leading" secondItem="Vnv-2n-VXu" secondAttribute="trailing" constant="27" id="oyb-ck-FAJ"/>
                                     <constraint firstItem="hRB-Ha-w2T" firstAttribute="leading" secondItem="Eef-OJ-Two" secondAttribute="trailing" constant="13" id="pAd-HV-5sf"/>
                                     <constraint firstItem="wVN-3g-mt9" firstAttribute="top" secondItem="Vnv-2n-VXu" secondAttribute="top" id="qMp-jm-rNF"/>
+                                    <constraint firstAttribute="centerX" secondItem="qwT-6P-G4Y" secondAttribute="centerX" id="qbE-gO-Mg7"/>
                                     <constraint firstAttribute="bottom" secondItem="UJd-Dq-5ra" secondAttribute="bottom" constant="450" id="taD-VQ-D9v"/>
+                                    <constraint firstAttribute="bottom" secondItem="gxv-lN-X4e" secondAttribute="bottom" constant="142" id="vUC-fK-3dH"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2QQ-Ow-jJc"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -124,6 +163,10 @@
                             <constraint firstItem="7TJ-RS-2Vw" firstAttribute="top" secondItem="5dA-Gs-eUI" secondAttribute="top" id="eEC-Bb-x7h"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="latitudeLabel" destination="wVN-3g-mt9" id="xMD-li-gYj"/>
+                        <outlet property="longitudeLabel" destination="hRB-Ha-w2T" id="NgI-jw-ppy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CE5-pu-EaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
