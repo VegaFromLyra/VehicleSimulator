@@ -27,7 +27,7 @@ class LocationModel {
     
     query.findObjectsInBackgroundWithBlock({ (results:[AnyObject]?, error: NSError?) -> Void in
       if let results = results {
-        let bus: PFObject = results[0] as! PFObject
+        var bus: PFObject = results[0] as! PFObject
         var location = PFObject(className:"Location")
         location["coordinate"] = self.coordinate
         location["bus"] = PFObject(withoutDataWithClassName: "Bus", objectId: bus.objectId)
@@ -36,6 +36,16 @@ class LocationModel {
           if success {
             println("Location saved successfully")
             self.id = location.objectId
+            
+            bus["lastKnownLocation"] = location
+            bus.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
+              if success {
+                println("Latest location of bus has been updated")
+              } else {
+                println("Error updating bus's latest location")
+              }
+            })
+            
           } else {
             println(error?.description)
           }
