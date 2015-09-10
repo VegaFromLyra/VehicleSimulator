@@ -28,9 +28,12 @@ class LocationModel {
     query.findObjectsInBackgroundWithBlock({ (results:[AnyObject]?, error: NSError?) -> Void in
       if let results = results {
         var bus: PFObject = results[0] as! PFObject
-        var location = PFObject(className:"Location")
+        var location = PFObject(className:"BusLocation")
         location["coordinate"] = self.coordinate
         location["bus"] = PFObject(withoutDataWithClassName: "Bus", objectId: bus.objectId)
+        
+        var currentUser = PFUser.currentUser()
+        location.ACL = PFACL(user: currentUser!)
         
         location.saveInBackgroundWithBlock({ (success:Bool, error: NSError?) -> Void in
           if success {
