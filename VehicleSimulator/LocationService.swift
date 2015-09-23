@@ -25,7 +25,7 @@ class LocationService {
   func saveLocation(location: LocationModel) {
     if utilityService.isConnectedToNetwork() {
       if unsavedLocations.count > 0 {
-        println("Save the cached locations first")
+        print("Save the cached locations first", terminator: "")
         for unsavedLoc in unsavedLocations {
           unsavedLoc.save()
         }
@@ -33,7 +33,7 @@ class LocationService {
       }
       location.save()
     } else {
-      println("No connectivity detected so caching the locations")
+      print("No connectivity detected so caching the locations", terminator: "")
       unsavedLocations.append(location)
     }
   }

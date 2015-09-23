@@ -27,9 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFCloud.callFunctionInBackground("addUserToRole", withParameters: ["roleName":"Bus"]) {
           (response: AnyObject?, error: NSError?) -> Void in
           if error == nil {
-            println("User added to Bus role")
+            print("User added to Bus role", terminator: "")
           } else {
-            println("Error adding user to role " + error!.description)
+            print("Error adding user to role " + error!.description, terminator: "")
           }
         }
       });

@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Asha Balasubramaniam. All rights reserved.
 //
 
-import Foundation
 import CoreLocation
 import Parse
 
@@ -22,38 +21,37 @@ class LocationModel {
   }
   
   func save() {
-    var query = PFQuery(className: "Bus")
+    let query = PFQuery(className: "Bus")
     query.whereKey("busNumber", equalTo:busNumber)
     
-    query.findObjectsInBackgroundWithBlock({ (results:[AnyObject]?, error: NSError?) -> Void in
-      if let results = results {
-        var bus: PFObject = results[0] as! PFObject
-        var location = PFObject(className:"BusLocation")
+    query.findObjectsInBackgroundWithBlock { (buses: [PFObject]?, error: NSError?) -> Void in
+      if let buses = buses {
+        let bus: PFObject = buses[0]
+        let location = PFObject(className: "BusLocation")
         location["coordinate"] = self.coordinate
         location["bus"] = PFObject(withoutDataWithClassName: "Bus", objectId: bus.objectId)
         
-        var currentUser = PFUser.currentUser()
+        let currentUser = PFUser.currentUser()
         location.ACL = PFACL(user: currentUser!)
         
-        location.saveInBackgroundWithBlock({ (success:Bool, error: NSError?) -> Void in
+        location.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
           if success {
-            println("Location saved successfully")
+            print("Location saved successfully")
             self.id = location.objectId
-            
             bus["lastKnownLocation"] = location
+            
             bus.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
               if success {
-                println("Latest location of bus has been updated")
+                print("Latest location has been updated")
               } else {
-                println("Error updating bus's latest location")
+                print("Error updating latest location")
               }
             })
-            
           } else {
-            println(error?.description)
+            print(error?.description)
           }
         })
       }
-    })
+    }
   }
 }

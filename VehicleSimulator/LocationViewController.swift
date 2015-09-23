@@ -70,12 +70,13 @@ class LocationViewController: UIViewController {
 }
 
 extension LocationViewController: CLLocationManagerDelegate {
-  func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-    var currentLocation = locations.first as? CLLocation
+  
+  func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    let currentLocation = locations.first
     if let currentLocation = currentLocation {
       latitudeLabel.text = String(format:"%f", currentLocation.coordinate.latitude)
       longitudeLabel.text = String(format:"%f", currentLocation.coordinate.longitude)
-      var location = LocationModel(latitude: currentLocation.coordinate.latitude,
+      let location = LocationModel(latitude: currentLocation.coordinate.latitude,
         longitude: currentLocation.coordinate.longitude,
         number: busNumber)
       locationService.saveLocation(location)

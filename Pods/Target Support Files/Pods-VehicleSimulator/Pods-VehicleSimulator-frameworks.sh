@@ -53,11 +53,9 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-VehicleSimulator/Bolts.framework'
-  install_framework 'Pods-VehicleSimulator/IJReachability.framework'
   install_framework 'Pods-VehicleSimulator/Parse.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-VehicleSimulator/Bolts.framework'
-  install_framework 'Pods-VehicleSimulator/IJReachability.framework'
   install_framework 'Pods-VehicleSimulator/Parse.framework'
 fi

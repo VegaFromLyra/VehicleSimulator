@@ -1,25 +1,13 @@
 PODS:
-  - Bolts/Tasks (1.2.1)
-  - IJReachability (0.1.0)
-  - Parse (1.8.1):
-    - Bolts/Tasks (>= 1.2.0)
+  - Bolts/Tasks (1.2.2)
+  - Parse (1.8.5):
+    - Bolts/Tasks (>= 1.2.2)
 
 DEPENDENCIES:
-  - IJReachability (from `https://github.com/Isuru-Nanayakkara/IJReachability.git`)
   - Parse
 
-EXTERNAL SOURCES:
-  IJReachability:
-    :git: https://github.com/Isuru-Nanayakkara/IJReachability.git
-
-CHECKOUT OPTIONS:
-  IJReachability:
-    :commit: da69c8f4bed9f82203bb49180fb36091b4cd0d28
-    :git: https://github.com/Isuru-Nanayakkara/IJReachability.git
-
 SPEC CHECKSUMS:
-  Bolts: 7686a5cb204d1ac54cee26f12d9b7622db3f80d1
-  IJReachability: 3eff33caca50869df09b257bcf712031a56a8575
-  Parse: 2155953b1565494095d5fa5c83b3c77f2c677c09
+  Bolts: 20a2bd788273360cb1e31530dc19b8544eef2544
+  Parse: 17ad8e0677ed682f7f00503860fcda0f4eb74168
 
 COCOAPODS: 0.38.0
