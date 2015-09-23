@@ -15,8 +15,7 @@ class LocationViewController: UIViewController {
   @IBOutlet weak var longitudeLabel: UILabel!
   
   let locationManager: CLLocationManager =  CLLocationManager()
-  let busOperatorId = "BusOperator1"
-  let busId = "actionmanBus"
+  let busNumber = "Peter Pan"
   let locationService = LocationService.sharedInstance
   
   
@@ -78,7 +77,7 @@ extension LocationViewController: CLLocationManagerDelegate {
       longitudeLabel.text = String(format:"%f", currentLocation.coordinate.longitude)
       var location = LocationModel(latitude: currentLocation.coordinate.latitude,
         longitude: currentLocation.coordinate.longitude,
-        busExternalId: busId)
+        number: busNumber)
       locationService.saveLocation(location)
     } else {
       latitudeLabel.text = ""

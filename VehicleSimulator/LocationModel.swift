@@ -12,18 +12,18 @@ import Parse
 
 class LocationModel {
   var coordinate: PFGeoPoint
-  var busId: String
+  var busNumber: String
   var id:String!
   let utilityService = UtilityService.sharedInstance
   
-  init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, busExternalId: String) {
+  init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, number: String) {
     coordinate = PFGeoPoint(latitude: latitude, longitude: longitude)
-    busId = busExternalId
+    busNumber = number
   }
   
   func save() {
     var query = PFQuery(className: "Bus")
-    query.whereKey("ExternalId", equalTo:busId)
+    query.whereKey("busNumber", equalTo:busNumber)
     
     query.findObjectsInBackgroundWithBlock({ (results:[AnyObject]?, error: NSError?) -> Void in
       if let results = results {

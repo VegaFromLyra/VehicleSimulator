@@ -18,20 +18,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    Parse.setApplicationId("CQq1MSlxSlnzXn1RLtmXkG2mvaHazhGBfYuuML5v",
-      clientKey: "SZPpAaUVnNOSQsbHzJBnOw5s9o7sCeyQSkf7s6Ca")
+    Parse.setApplicationId("6CB1XqCK2qfPzH0j3l7MDDVHrlfrxDsmETGJbnyk",
+      clientKey: "SpiUAmOniIWLAoN5u0EAUmZZUblbn3RYPOVnF5KP")
     
     PFUser.enableAutomaticUser()
-    
-    PFCloud.callFunctionInBackground("addUserToRole", withParameters: ["roleName":"Bus"]) {
-      (response: AnyObject?, error: NSError?) -> Void in
-      if error == nil {
-        println("User added to Bus role")
-      } else {
-        println("Error adding user to role " + error!.description)
-      }
+    if let currentUser = PFUser.currentUser() {
+      currentUser.saveInBackgroundWithBlock({ (result: Bool, error: NSError?) -> Void in
+        PFCloud.callFunctionInBackground("addUserToRole", withParameters: ["roleName":"Bus"]) {
+          (response: AnyObject?, error: NSError?) -> Void in
+          if error == nil {
+            println("User added to Bus role")
+          } else {
+            println("Error adding user to role " + error!.description)
+          }
+        }
+      });
     }
-    
+
     return true
   }
   
