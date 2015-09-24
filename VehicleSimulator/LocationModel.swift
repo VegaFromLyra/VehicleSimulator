@@ -13,44 +13,30 @@ class LocationModel {
   var coordinate: PFGeoPoint
   var busNumber: String
   var id:String!
+  var reportedTime: NSDate
+  var busOperatorName: String
   let utilityService = UtilityService.sharedInstance
+  var locationParameters = [String: AnyObject]()
   
-  init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, number: String) {
-    coordinate = PFGeoPoint(latitude: latitude, longitude: longitude)
-    busNumber = number
+  init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, number: String, busOperatorName: String, reportedTime: NSDate) {
+    self.coordinate = PFGeoPoint(latitude: latitude, longitude: longitude)
+    self.busNumber = number
+    self.busOperatorName = busOperatorName
+    self.reportedTime = reportedTime
+  
+    locationParameters.updateValue(self.coordinate, forKey: "coordinate")
+    locationParameters.updateValue(self.busNumber, forKey: "busNumber")
+    locationParameters.updateValue(self.busOperatorName, forKey: "busOperatorName")
+    locationParameters.updateValue(self.reportedTime, forKey: "reportedTime")
   }
   
   func save() {
-    let query = PFQuery(className: "Bus")
-    query.whereKey("busNumber", equalTo:busNumber)
-    
-    query.findObjectsInBackgroundWithBlock { (buses: [PFObject]?, error: NSError?) -> Void in
-      if let buses = buses {
-        let bus: PFObject = buses[0]
-        let location = PFObject(className: "BusLocation")
-        location["coordinate"] = self.coordinate
-        location["bus"] = PFObject(withoutDataWithClassName: "Bus", objectId: bus.objectId)
-        
-        let currentUser = PFUser.currentUser()
-        location.ACL = PFACL(user: currentUser!)
-        
-        location.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
-          if success {
-            print("Location saved successfully")
-            self.id = location.objectId
-            bus["lastKnownLocation"] = location
-            
-            bus.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
-              if success {
-                print("Latest location has been updated")
-              } else {
-                print("Error updating latest location")
-              }
-            })
-          } else {
-            print(error?.description)
-          }
-        })
+    PFCloud.callFunctionInBackground("reportLocation", withParameters: locationParameters) {
+      (response: AnyObject?, error: NSError?) -> Void in
+      if error == nil {
+        print("Location reported")
+      } else {
+        print(error?.description)
       }
     }
   }

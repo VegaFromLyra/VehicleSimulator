@@ -21,20 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Parse.setApplicationId("6CB1XqCK2qfPzH0j3l7MDDVHrlfrxDsmETGJbnyk",
       clientKey: "SpiUAmOniIWLAoN5u0EAUmZZUblbn3RYPOVnF5KP")
     
-    PFUser.enableAutomaticUser()
-    if let currentUser = PFUser.currentUser() {
-      currentUser.saveInBackgroundWithBlock({ (result: Bool, error: NSError?) -> Void in
-        PFCloud.callFunctionInBackground("addUserToRole", withParameters: ["roleName":"Bus"]) {
-          (response: AnyObject?, error: NSError?) -> Void in
-          if error == nil {
-            print("User added to Bus role", terminator: "")
-          } else {
-            print("Error adding user to role " + error!.description, terminator: "")
-          }
-        }
-      });
-    }
-
     return true
   }
   
